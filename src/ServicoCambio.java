@@ -33,4 +33,9 @@ public class ServicoCambio {
         }
         return taxa;
     }
+
+    public Double converteMoeda(String moedaOrigem, String moedaDestino, double valor) throws IOException, InterruptedException {
+        double taxa = consultaTaxaDeCambio(moedaOrigem, moedaDestino);
+        return taxa * valor;
+    }
 }
