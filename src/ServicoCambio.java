@@ -9,6 +9,8 @@ import java.net.http.HttpResponse;
 public class ServicoCambio {
 
     public Double consultaTaxaDeCambio(String moedaOrigem, String moedaDestino) throws IOException, InterruptedException {
+
+        // Troca essa CHAVE, coloca a sua CHAVE aqui
         String apiKey = "d8bd06f215b52d859e6443e2";
         URI endereco = URI.create("https://v6.exchangerate-api.com/v6/" + apiKey +"/latest/" + moedaOrigem);
 
