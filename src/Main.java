@@ -6,19 +6,6 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         ServicoCambio servicoCambio = new ServicoCambio();
 
-        String info = """
-                *******************************
-                *         INFORMAÇÕES         * 
-                *   USD =>> Dólar Americano   *
-                *   BRL =>> Real              *  
-                *   EUR =>> Euro              *  
-                *   CAD =>> Dólar Canadense   *  
-                *   RUB =>> Rublo Russo       *  
-                *   CNY =>> Yuan              *  
-                *   ARS =>> Peso Argentino    *                     
-                *******************************
-                """;
-
         String menu = """
                     1 - USD => BRL
                     2 - EUR => USD
@@ -26,7 +13,6 @@ public class Main {
                     4 - RUB => USD
                     5 - CNY => EUR
                     6 - ARS => BRL
-                    0 - INFO
                     7 - SAIR
                     """;
 
@@ -37,21 +23,34 @@ public class Main {
             System.out.println("======================================");
             System.out.println(menu);
             System.out.print("Digite um número (0 a 7): ");
-            int opcao = sc.nextInt();
+            int opcao;
+
+            if (sc.hasNextInt()) {
+                opcao = sc.nextInt();
+            } else {
+                System.out.println("Entrada inválida! Digite um número inteiro.");
+                sc.nextLine(); // limpa o buffer
+                continue;
+            }
 
             if (opcao == 7) {
                 System.out.println("Encerrando...");
                 break;
             }
 
-            if (opcao == 0) {
-                System.out.println(info);
+            if (opcao > 7 || opcao < 0) {
+                System.out.println("Opção inválida!");
                 continue;
             }
 
-            System.out.print("Digite o valor: ");
-            valor = sc.nextDouble();
-
+            System.out.print("Digite o valor a ser convertido: ");
+            if (sc.hasNextDouble()) {
+                valor = sc.nextDouble();
+            } else {
+                System.out.println("Valor inválido! Digite um número decimal.");
+                sc.nextLine();
+                continue;
+            }
 
             switch(opcao) {
                 case 1:
@@ -87,6 +86,7 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Erro: " + e.getMessage());
             }
+            sc.nextLine();
         }
 
         sc.close();
