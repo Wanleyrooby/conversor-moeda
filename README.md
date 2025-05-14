@@ -103,10 +103,4 @@ String apiKey = "SUA_NOVA_CHAVE";
 
 ---
 
-## 📄 Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
-
----
-
 👨‍💻 Feito para fins didáticos. Contribuições são bem-vindas!
